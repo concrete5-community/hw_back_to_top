@@ -21,7 +21,7 @@ class Controller extends BlockController {
     {
         return t("HW Back To Top");
     }
-		public function registerViewAssets()
+		public function registerViewAssets($outputContent = '')
     {
 		$pkg = Package::getByHandle('hw_back_to_top');    
         $packagePath = $pkg->getRelativePath();
