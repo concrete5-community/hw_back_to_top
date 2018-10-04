@@ -1,40 +1,42 @@
-<?php      
+<?php
+
 namespace Concrete\Package\HwBackToTop;
-use Package;
-use BlockType;
-use View;
-use Loader;
 
-defined('C5_EXECUTE') or die(_("Access Denied."));
+use Concrete\Core\Package\Package;
+use Concrete\Core\Block\BlockType\BlockType;
 
-class Controller extends Package {
+defined('C5_EXECUTE') or die(("Access Denied."));
 
-	protected $pkgHandle = 'hw_back_to_top';
-	protected $appVersionRequired = '5.7.4';
-	protected $pkgVersion = '0.9.4';
-			
- 	
-	public function getPackageName() 
-	{
-		return t("Honest Websites Back To Top");
-	}
+class Controller extends Package
+{
 
-	public function getPackageDescription() 
-	{
-		return t("Add an back to top icon on your web page");
-	}
+    protected $pkgHandle = 'hw_back_to_top';
+    protected $appVersionRequired = '5.7.4';
+    protected $pkgVersion = '1.0.2';
 
-	public function install() 
-	{
-		$pkg = parent::install();
+    public function getPackageName()
+    {
+        return t("Honest Websites Back To Top");
+    }
 
-		// install block
-		BlockType::installBlockTypeFromPackage('back_to_top', $pkg);
-		
-		return $pkg;
-	}
-	public function uninstall() {
-		parent::uninstall();
-	}
+    public function getPackageDescription()
+    {
+        return t("Add an back to top icon on your web page");
+    }
+
+    public function install()
+    {
+        $pkg = parent::install();
+
+        // install block
+        BlockType::installBlockType('back_to_top', $pkg);
+
+        return $pkg;
+    }
+
+    public function uninstall()
+    {
+        parent::uninstall();
+    }
 
 }
